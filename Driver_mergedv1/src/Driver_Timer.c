@@ -158,7 +158,7 @@ void MyTimer_PWM( TIM_TypeDef * Timer, char Channel){
 
 void MyTimer_PWM_SetDutyCycle(TIM_TypeDef * Timer, char Channel, float DutyCycle) {
 	if (Channel == 1) {
-		Timer->CCR1 = (uint16_t) (Timer->ARR * DutyCycle); //D�finit le duty cycle
+		Timer->CCR1 = (uint16_t) (Timer->ARR * DutyCycle); //Définit le duty cycle
 	} else if (Channel == 2) {
 		Timer->CCR2 = (uint16_t) (Timer->ARR * DutyCycle);
 	} else if (Channel == 3) {
