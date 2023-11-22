@@ -7,6 +7,7 @@ typedef struct{
 	USART_TypeDef * Usart;
 } MyUSART_Struct_TypeDef ;
 
+
 /*
 **************************************************************************************************
 * @brief 
@@ -37,6 +38,6 @@ void MyUSART_Reception_Init(USART_TypeDef * Usart);
 * @Note -> 
 *************************************************************************************************
 */
-void MyUSART_Emission_Init(USART_TypeDef * Usart);
+void MyUSART_Transmission_Init(USART_TypeDef * Usart, char * ptr);
 
 #endif
