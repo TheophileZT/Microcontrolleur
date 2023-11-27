@@ -1,7 +1,7 @@
 #ifndef GIROUETTE_H
 #define GIROUETTE_H
 
-void GirouetteInit();
-float GirouetteAngle();
+void GirouetteInit(void);
+float GirouetteAngle(void);
 
 #endif
