@@ -64,3 +64,12 @@ void MyGPIO_Toggle (GPIO_TypeDef * GPIO , char GPIO_Pin) {
 		MyGPIO_Set (GPIO, GPIO_Pin);
 	}
 }
+
+void MyGPIO_ExtI(void){
+	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+	MyGPIO_Init(GPIOD, 0, In_PullUp);
+	AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI0_PD;
+	EXTI->IMR |= EXTI_IMR_MR0;
+	EXTI->RTSR |= EXTI_RTSR_TR0;
+	EXTI->PR &= ~(0x1);
+}

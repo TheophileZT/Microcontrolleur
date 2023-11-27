@@ -2,7 +2,9 @@
 #include "Driver_GPIO.h"
 #include "Driver_Timer.h"
 
-void GirouetteInit(){
+float angle;
+
+void GirouetteInit(void){
 	// SET GPIO
 	MyGPIO_Init(GPIOA, 0, In_PullUp);
 	MyGPIO_Init(GPIOA, 1, In_PullUp);
@@ -22,4 +24,19 @@ void GirouetteInit(){
 	TIM2->CCER &= ~(0x1<<5); //CC2P
 	TIM2->CCER &= ~(0x1<<3); //CC1NP
 	TIM2->CCER &= ~(0x1<<7); //CC2NP
+	
+	// Extern interrup
+  MyGPIO_ExtI();
 }
+
+void EXTI0_IRQHandler ( void ) {
+	EXTI->PR &= ~(0x1);
+	angle = 0;
+}
+
+float GirouetteAngle(void){
+	angle = TIM2->CNT / 4.0;
+	angle -= 180.0;
+	return angle;
+}
+
