@@ -827,7 +827,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Include;..\MesDrivers\Include</IncludePath>
+              <IncludePath>..\Driver_mergedv1\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

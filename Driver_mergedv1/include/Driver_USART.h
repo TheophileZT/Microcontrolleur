@@ -38,6 +38,15 @@ void MyUSART_Reception_Init(USART_TypeDef * Usart);
 * @Note -> 
 *************************************************************************************************
 */
-void MyUSART_Transmission_Init(USART_TypeDef * Usart, char * ptr);
+void MyUSART_Transmission_Init(USART_TypeDef * Usart);
+
+/*
+**************************************************************************************************
+* @brief 
+* @param -> USART_TypeDef * Usart : USART concrné
+* @Note -> 
+*************************************************************************************************
+*/ 
+void MyUSART_Send(USART_TypeDef * Usart, char * ptr);
 
 #endif
