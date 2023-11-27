@@ -50,8 +50,7 @@ void MyUSART_Reception_Init(USART_TypeDef * Usart) {
 																				 //transmission.
 }
 
-void MyUSART_Transmission_Init(USART_TypeDef * Usart, char * ptr){
-	int i = 0;
+void MyUSART_Transmission_Init(USART_TypeDef * Usart){
 	
 	if(Usart == USART1){
 		MyGPIO_Init(GPIOA, 9, AltOut_Ppull); //Pin de USART1_TX
@@ -79,14 +78,18 @@ void MyUSART_Transmission_Init(USART_TypeDef * Usart, char * ptr){
 	}
 	
 	Usart -> CR1 |= (0x1 << 3); //Set the TE bit in USART_CR1 to send an idle frame as first transmission.
+}
+
+void MyUSART_Send(USART_TypeDef * Usart, char * ptr){
+	int i = 0;
 	
 	while (ptr[i]!='\0'){ //boucle pour itérer sur tous les char
 		Usart -> DR = (ptr[i]);
 		i++;
 		while (!(Usart -> SR & (0x1 << 6))) {} //After writing the last data into the USART_DR register, wait until TC=1. This indicates
-																				 //that the transmission of the last frame is complete. This is required for instance when
-																				 //the USART is disabled or enters the Halt mode to avoid corrupting the last
-																				 //transmission.
+																				   //that the transmission of the last frame is complete. This is required for instance when
+																				   //the USART is disabled or enters the Halt mode to avoid corrupting the last
+																			 	   //transmission.
 	} // Write the data to send in the USART_DR register (this clears the TXE bit). Repeat this
 		//for each data to be transmitted in case of single buffer.
 }
