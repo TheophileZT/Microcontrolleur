@@ -11,7 +11,7 @@ typedef struct{
 /*
 **************************************************************************************************
 * @brief 
-* @param -> USART_TypeDef * Usart : USART concrné
+* @param -> USART_TypeDef * Usart : USART concerné
 * @Note -> When a character is received
 					• The RXNE bit is set. It indicates that the content of the shift register is transferred to the 
 					RDR. In other words, data has been received and can be read (as well as its 
@@ -34,7 +34,7 @@ void MyUSART_Reception_Init(USART_TypeDef * Usart);
 /*
 **************************************************************************************************
 * @brief 
-* @param -> USART_TypeDef * Usart : USART concrné
+* @param -> USART_TypeDef * Usart : USART concerné
 * @Note -> 
 *************************************************************************************************
 */
@@ -43,10 +43,22 @@ void MyUSART_Transmission_Init(USART_TypeDef * Usart);
 /*
 **************************************************************************************************
 * @brief 
-* @param -> USART_TypeDef * Usart : USART concrné
+* @param -> - USART_TypeDef * Usart : USART concerné
+- char * ptr : pointeur d'une chaine de char à envoyer
 * @Note -> 
 *************************************************************************************************
 */ 
 void MyUSART_Send(USART_TypeDef * Usart, char * ptr);
+
+/*
+**************************************************************************************************
+* @brief 
+* @param -> - USART_TypeDef * Usart : USART concerné
+						- char Prio : de 0 a 15
+						- void (*IT_Func)(void) : pointeur de la fonction à exécuter
+* @Note -> 
+*************************************************************************************************
+*/
+void MyUSART_ActiveIT(USART_TypeDef * Usart, char Prio, void (*IT_Func)(void));
 
 #endif
