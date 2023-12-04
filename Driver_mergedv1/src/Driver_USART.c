@@ -56,10 +56,10 @@ void MyUSART_Transmission_Init(USART_TypeDef * Usart){
 		MyGPIO_Init(GPIOA, 9, AltOut_Ppull); //Pin de USART1_TX
 	}
 	else if(Usart == USART2){
-		MyGPIO_Init(GPIOA, 2, AltOut_Ppull); //Pin de USART1_TX
+		MyGPIO_Init(GPIOA, 2, AltOut_Ppull); //Pin de USART2_TX
 	}
 	else if(Usart == USART3){
-		MyGPIO_Init(GPIOB, 10, AltOut_Ppull); //Pin de USART1_TX
+		MyGPIO_Init(GPIOB, 10, AltOut_Ppull); //Pin de USART3_TX
 	}
 	
 	Usart -> CR1 |= (0x1 << 13); // Enable the USART by writing the UE bit in USART_CR1 register to 1.
