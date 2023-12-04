@@ -8,6 +8,11 @@
 
 char * ptr = "€";
 signed char vitesse ;
+
+void IT_Func (void) {
+	vitesse = USART2 -> DR ;
+}
+
 int main (void)
 {
 	//MyUSART_Reception_Init(USART2);
@@ -25,7 +30,7 @@ int main (void)
 	do {
 		//MyUSART_Send(USART2, ptr);
 		vitesse = (signed char) MyGPIO_Read (GPIOA, 3); //lit ce qui est recu par l'usart2 et le converti en signed char (suffisant car valeur entre -100 et 100)
-		rapport = abs(vitesse)/255;
+		rapport = abs(vitesse)/100;
 	if (vitesse < 0){
 		MyGPIO_Set(GPIOA, 4);//bit de sens à 1 pour indiquer le sens de rotation
 		MyTimer_PWM_SetDutyCycle(TIM2, 1, rapport);
