@@ -6,7 +6,7 @@
 #include <stdio.h> 
 
 
-char * ptr = "bonjour";
+char * ptr = (char *)65;
 signed char vitesse ;
 float rapport = 0.0;
 
@@ -37,7 +37,9 @@ int main (void)
 	
 	MyTimer_Base_Init(TIM2, 1799, 1);//pour un signal de la PWM de fréquence 20 kHz
 	MyTimer_Base_Start(TIM2);
-	MyTimer_PWM(TIM2, 1);//TIM2_CH1 connecté à la pin PA0
+	MyTimer_PWM(TIM2, 1);//TIM2_CH1 connecté à la pin PA0 -> PLATEAU_PWM
+	
+	MyUSART_Send(USART2, ptr);
 	
 	do {
 	} while(1);
