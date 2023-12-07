@@ -422,6 +422,16 @@
               <FileType>5</FileType>
               <FilePath>.\girouette.h</FilePath>
             </File>
+            <File>
+              <FileName>servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\servo.h</FilePath>
+            </File>
+            <File>
+              <FileName>servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\servo.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -858,6 +868,16 @@
               <FileName>girouette.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\girouette.h</FilePath>
+            </File>
+            <File>
+              <FileName>servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\servo.h</FilePath>
+            </File>
+            <File>
+              <FileName>servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\servo.c</FilePath>
             </File>
           </Files>
         </Group>
