@@ -4,7 +4,7 @@
 
 int main(){
 	
-	GirouetteInit();
+	//GirouetteInit();
 	servoInit();
 	while(1){
 		bordage();

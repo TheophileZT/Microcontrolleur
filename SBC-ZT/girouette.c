@@ -1,9 +1,11 @@
 #include "girouette.h"
 #include "Driver_GPIO.h"
 #include "Driver_Timer.h"
+#include "servo.h"
 #include <stdio.h>
 
 float angle;
+int test=0;
 
 void GirouetteInit(void){
 	// SET GPIO
@@ -31,6 +33,7 @@ void GirouetteInit(void){
 }
 
 void EXTI0_IRQHandler ( void ) {
+	test++;
 	EXTI->PR |= 0x1;
 	TIM2->CNT = 720;
 }
