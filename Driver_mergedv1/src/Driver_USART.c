@@ -89,7 +89,7 @@ void MyUSART_Send(USART_TypeDef * Usart, char * ptr){
 	while (ptr[i]!='\0'){ //boucle pour itérer sur tous les char
 		Usart -> DR = (ptr[i]);
 		i++;
-		while ((Usart -> SR & USART_SR_TXE) == 0) {} //on attend que TXE soit à 0 avant d'envoyer un autre char
+		while ((Usart -> SR & USART_SR_TXE) == 0); //on attend que TXE soit à 0 avant d'envoyer un autre char
 																					 //After writing the last data into the USART_DR register, wait until TC=1. This indicates
 																				   //that the transmission of the last frame is complete. This is required for instance when
 																				   //the USART is disabled or enters the Halt mode to avoid corrupting the last
