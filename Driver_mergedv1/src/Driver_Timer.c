@@ -102,7 +102,7 @@ void MyTimer_PWM( TIM_TypeDef * Timer, char Channel){
 			MyGPIO_Init (GPIOA, 9, AltOut_Ppull);
 		}
 		if (Timer==TIM2){
-			MyGPIO_Init (GPIOB, 3, AltOut_Ppull);
+			MyGPIO_Init (GPIOA, 1, AltOut_Ppull);
 		}
 		if (Timer==TIM3){
 			MyGPIO_Init (GPIOA, 7, AltOut_Ppull);

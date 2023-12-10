@@ -7,11 +7,10 @@ float dutyCycle = 0.5;
 float scaler = 0.1;
 
 void servoInit(){
-	MyGPIO_Init(GPIOA, 0, AltOut_Ppull);
-	MyTimer_Base_Init(TIM2, 65535, 21);	
-	MyTimer_Base_Start(TIM2);
-	MyTimer_PWM(TIM2,1);
-	MyTimer_PWM_SetDutyCycle(TIM2,1,0.2f);
+	MyTimer_Base_Init(TIM3, 65535, 21);	
+	MyTimer_Base_Start(TIM3);
+	MyTimer_PWM(TIM3,2);
+	MyTimer_PWM_SetDutyCycle(TIM3,2,0.2f);
 }
 
 float traduceDutyCycle(float dutyCycle){
