@@ -2,6 +2,8 @@
 #include "Driver_USART.h"
 #include "Driver_GPIO.h"
 #include "Driver_Timer.h"
+#include "servo.h"
+#include "girouette.h"
 #include <stdlib.h>
 #include <stdio.h> 
 
@@ -24,6 +26,8 @@ void IT_Func (void) {
 }
 
 int main (void){
+	
+	GirouetteInit();
 	
 	MyUSART_Reception_Init(USART3);//B11
 	MyUSART_Transmission_Init(USART3);//B10
@@ -51,5 +55,6 @@ int main (void){
 	
 	do {
 		//MyUSART_Send(USART3,ptr);
+		bordage();
 	} while(1);
 }
