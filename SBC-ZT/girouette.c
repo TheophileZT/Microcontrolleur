@@ -36,6 +36,7 @@ void EXTI0_IRQHandler ( void ) {
 	test++;
 	EXTI->PR |= 0x1;
 	TIM2->CNT = 720;
+	servoInit();
 }
 
 float GirouetteAngle(void){
