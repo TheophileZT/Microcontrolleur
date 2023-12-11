@@ -46,7 +46,7 @@ int main (void){
 	
 	MyGPIO_Init(GPIOC, 3, Out_Ppull);//PLATEAU_DIRECTION PA4 -> 20e pin
 	MyGPIO_Reset(GPIOC, 3);//bit de sens à 1 pour indiquer le sens de rotation*/
-	//MyUSART_Send(USART1, ptr);
+	MyUSART_Send(USART1, ptr);
 	
 	do {
 	} while(1);
