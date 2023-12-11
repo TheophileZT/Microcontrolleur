@@ -5,7 +5,6 @@
 int main(){
 	
 	GirouetteInit();
-	servoInit();
 	while(1){
 		bordage();
 	}
