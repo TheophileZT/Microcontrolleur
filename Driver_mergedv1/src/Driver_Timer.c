@@ -10,13 +10,13 @@ void (*TIM4_IT_Funct)(void);
 
 void MyTimer_Base_Init ( TIM_TypeDef * Timer, uint16_t arr, uint16_t psc) {
 	if (Timer==TIM2){
-		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; //Active l�horloge du Timer 2
+		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; //Active l'horloge du Timer 2
 	} else if (Timer==TIM3) {
-		RCC->APB1ENR |= RCC_APB1ENR_TIM3EN; //Active l�horloge du Timer 3
+		RCC->APB1ENR |= RCC_APB1ENR_TIM3EN; //Active l'horloge du Timer 3
 	} else if (Timer==TIM4) {
-		RCC->APB1ENR |= RCC_APB1ENR_TIM4EN; //Active l�horloge du Timer 4
+		RCC->APB1ENR |= RCC_APB1ENR_TIM4EN; //Active l'horloge du Timer 4
 	} else if (Timer==TIM1){
-		RCC->APB2ENR |= RCC_APB2ENR_TIM1EN; //Active l�horloge du Timer 1
+		RCC->APB2ENR |= RCC_APB2ENR_TIM1EN; //Active l'horloge du Timer 1
 	}
 	Timer->ARR=arr; //Valeur d'auto-reload
 	Timer->PSC=psc; //Valeur de prescaler
@@ -27,8 +27,8 @@ void MyTimer_ActiveIT ( TIM_TypeDef * Timer , char Prio, void (*IT_Funct)(void) 
 	Timer->SR &= ~(0x1); //Reset le flag d'interruption
 	if (Timer==TIM2){
 		NVIC->ISER[0]|=(0x1)<<28; //Active l'interruption dans le NVIC
-		NVIC->IP[28]=Prio<<4; //D�finit la priorit�
-		TIM2_IT_Funct=(*IT_Funct); //D�finit la fonction de callback
+		NVIC->IP[28]=Prio<<4; //Définit la priorité
+		TIM2_IT_Funct=(*IT_Funct); //Définit la fonction de callback
 	} else if (Timer==TIM3) {
 		NVIC->ISER[0]|=(0x1)<<29;
 		NVIC->IP[29]=Prio<<4;
@@ -93,9 +93,9 @@ void MyTimer_PWM( TIM_TypeDef * Timer, char Channel){
 		}
 		Timer -> CCMR1 &= ~(0x7 << 4);
 		Timer -> CCMR1 |= (0x6 << 4); //mise en PWM mode 1
-		Timer -> CCER &= ~(0x1); //d�sactive CC1 le temps de l'initialisation
+		Timer -> CCER &= ~(0x1); //désactive CC1 le temps de l'initialisation
 		Timer -> CCMR1 &= ~(0x3); // channel 1 en output
-		Timer -> CCER |= (0x1); // r�active CC1
+		Timer -> CCER |= (0x1); // réactive CC1
 	}
 	else if (Channel == 2){
 		if (Timer==TIM1){
@@ -112,9 +112,9 @@ void MyTimer_PWM( TIM_TypeDef * Timer, char Channel){
 		}
 		Timer -> CCMR1 &= ~(0x7 << 12);
 		Timer -> CCMR1 |= (0x6 << 12); //mise en PWM mode 1
-		Timer -> CCER &= ~(0x1 << 4); //d�sactive CC2 le temps de l'initialisation
+		Timer -> CCER &= ~(0x1 << 4); //désactive CC2 le temps de l'initialisation
 		Timer -> CCMR1 &= ~(0x3 << 8); // channel 2 en output
-		Timer -> CCER |= (0x1 << 4); // r�active CC2
+		Timer -> CCER |= (0x1 << 4); // réactive CC2
 	}
 	else if (Channel == 3){
 		if (Timer==TIM1){
@@ -131,9 +131,9 @@ void MyTimer_PWM( TIM_TypeDef * Timer, char Channel){
 		}
 		Timer -> CCMR2 &= ~(0x7 << 4);
 		Timer -> CCMR2 |= (0x6 << 4); //mise en PWM mode 1
-		Timer -> CCER &= ~(0x1 << 8); //d�sactive CC3 le temps de l'initialisation
+		Timer -> CCER &= ~(0x1 << 8); //désactive CC3 le temps de l'initialisation
 		Timer -> CCMR2 &= ~(0x3); // channel 3 en output
-		Timer -> CCER |= (0x1 << 8); // r�active CC3
+		Timer -> CCER |= (0x1 << 8); // réactive CC3
 	}
 	else if (Channel == 4){
 		if (Timer==TIM1){
@@ -150,9 +150,9 @@ void MyTimer_PWM( TIM_TypeDef * Timer, char Channel){
 		}
 		Timer -> CCMR2 &= ~(0x7 << 12);
 		Timer -> CCMR2 |= (0x6 << 12); //mise en PWM mode 1
-		Timer -> CCER &= ~(0x1 << 12); //d�sactive CC4 le temps de l'initialisation
+		Timer -> CCER &= ~(0x1 << 12); //désactive CC4 le temps de l'initialisation
 		Timer -> CCMR2 &= ~(0x3 << 8); // channel 4 en output
-		Timer -> CCER |= (0x1 << 12); // r�active CC4
+		Timer -> CCER |= (0x1 << 12); // réactive CC4
 	}
 }
 

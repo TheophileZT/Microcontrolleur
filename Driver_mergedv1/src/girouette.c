@@ -5,7 +5,6 @@
 #include <stdio.h>
 
 float angle;
-int test=0;
 
 void GirouetteInit(void){
 	// SET GPIO
@@ -33,14 +32,13 @@ void GirouetteInit(void){
 }
 
 void EXTI0_IRQHandler ( void ) {
-	test++;
-	EXTI->PR |= 0x1;
-	TIM2->CNT = 720;
-	servoInit();
+	EXTI->PR |= 0x1; //efface le drapeur d'interruption
+	TIM2->CNT = 720; // reset le compter du timer à 720 (la moitié)
+	servoInit(); //initialise le servo pour commencer à bouger les voiles
 }
 
 float GirouetteAngle(void){
-	angle = ((TIM2->CNT / 4.0)-180)*-1;
+	angle = ((TIM2->CNT / 4.0)-180)*-1;  //calcule de l'angle
 	return angle;
 }
 
